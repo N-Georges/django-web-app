@@ -1,0 +1,16 @@
+{% extends 'listings/_base.html' %} {% block content %}
+
+<h1>Hello Django !</h1>
+<p>J'ai {{ listings|length }} titre préférés.</p>
+<p>Mes titres préférés sont :</p>
+<ul>
+  {% for listing in listings %}
+  <li>
+    <a class="hover:underline" href="{% url 'listing-detail' listing.id %}"
+      >{{ listing.title|lower }}</a
+    >
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
